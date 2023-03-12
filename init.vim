@@ -1,5 +1,5 @@
 :set number
-:set relativenumber
+":set relativenumber
 :set autoindent
 :set tabstop=4
 :set shiftwidth=4
@@ -28,21 +28,20 @@ Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/neoclide/coc.nvim'
 "'} " this is for auto complete, prettier and tslinting
 "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install', 'for': ['json', 'lua', 'vim', 'js', 'css',]}
-
 let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-json']  " list of CoC extensions needed
 
 Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
-
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 
-
 set encoding=UTF-8
-
+Plug 'Xuyuanp/nerdtree-git-plugin' "Indicates Modified and Staged Files in NERDTree
+Plug 'airblade/vim-gitgutter' "Indicates Added lines and deleted lines in the editor since last commit
+Plug 'tpope/vim-fugitive' "Shows in the Status bar which Branch you're working on
+Plug 'https://github.com/frazrepo/vim-rainbow'
 call plug#end()
-
 
 "" vim-prettier
 let g:prettier#autoformat = 1
