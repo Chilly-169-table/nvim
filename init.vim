@@ -22,9 +22,9 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'https://github.com/mattn/emmet-vim' 
+"Plug 'https://github.com/mattn/emmet-vim' 
 Plug 'https://github.com/neoclide/coc.nvim'
 "'} " this is for auto complete, prettier and tslinting
 "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install', 'for': ['json', 'lua', 'vim', 'js', 'css',]}
@@ -34,15 +34,15 @@ Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-
-set encoding=UTF-8
+Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
+Plug 'https://github.com/pangloss/vim-javascript'
 Plug 'Xuyuanp/nerdtree-git-plugin' "Indicates Modified and Staged Files in NERDTree
 Plug 'airblade/vim-gitgutter' "Indicates Added lines and deleted lines in the editor since last commit
 Plug 'tpope/vim-fugitive' "Shows in the Status bar which Branch you're working on
 Plug 'https://github.com/frazrepo/vim-rainbow'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+set encoding=UTF-8
 call plug#end()
-
 "" vim-prettier
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -93,3 +93,5 @@ inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 "emmet shortcuts
 let g:user_emmet_leader_key=','
 let g:user_emmet_mode='n'
+"Enabling JSX syntax highlighting in .js files
+let g:jsx_ext_required = 0 
