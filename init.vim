@@ -6,7 +6,7 @@
 :set smarttab
 :set softtabstop=4
 :set mouse=a
-
+:syntax on
 
 call plug#begin('~/.config/nvim/plugged')
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
@@ -22,9 +22,9 @@ Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
 Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-"Plug 'https://github.com/mattn/emmet-vim' 
+Plug 'https://github.com/mattn/emmet-vim' 
 Plug 'https://github.com/neoclide/coc.nvim'
 "'} " this is for auto complete, prettier and tslinting
 "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install', 'for': ['json', 'lua', 'vim', 'js', 'css',]}
@@ -34,15 +34,24 @@ Plug 'jiangmiao/auto-pairs' "this will auto close ( [ {
 " these two plugins will add highlighting and indenting to JSX and TSX files.
 Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
-Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+
+
 Plug 'Xuyuanp/nerdtree-git-plugin' "Indicates Modified and Staged Files in NERDTree
 Plug 'airblade/vim-gitgutter' "Indicates Added lines and deleted lines in the editor since last commit
 Plug 'tpope/vim-fugitive' "Shows in the Status bar which Branch you're working on
 Plug 'https://github.com/frazrepo/vim-rainbow'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'https://github.com/pangloss/vim-javascript'
+Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
 set encoding=UTF-8
 call plug#end()
+"Vim-JSX-pretty
+let g:vim_jsx_pretty_highlight_close_tag = 1
+let g:vim_jsx_pretty_colorful_config = 1
+"Vim-Rainbow
+let g:rainbow_active = 1
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 "" vim-prettier
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -90,8 +99,11 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
-"emmet shortcuts
+"Emmet
 let g:user_emmet_leader_key=','
-let g:user_emmet_mode='n'
-"Enabling JSX syntax highlighting in .js files
-let g:jsx_ext_required = 0 
+"let g:user_emmet_mode='n'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
